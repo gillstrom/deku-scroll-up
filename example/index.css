@@ -1,0 +1,36 @@
+* {
+	color: #fff;
+	text-decoration: none;
+}
+
+body {
+	margin: 0;
+	height: 3000px;
+	text-align: center;
+	font-size: 50px;
+	font-family: "Comic Sans MS", sans-serif;
+}
+
+.Box1 {
+	line-height: 100px;
+	background-color: tan;
+}
+
+.Box2 {
+	height: 200px;
+	background-color: navajowhite;
+}
+
+.ScrollUp {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	padding: 15px;
+	background-color: lightcoral;
+	cursor: pointer;
+}
+
+.ScrollUp--active {
+	display: block;
+}
