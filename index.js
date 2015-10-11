@@ -26,12 +26,6 @@ const propTypes = {
 	}
 };
 
-function initialState() {
-	return {
-		active: false
-	};
-}
-
 function shouldUpdate({state}, nextProps, {active}) {
 	return !state.active === active;
 }
@@ -60,4 +54,4 @@ function render({props, state}) {
 	);
 }
 
-export default {afterMount, defaultProps, initialState, propTypes, render, shouldUpdate};
+export default {afterMount, defaultProps, propTypes, render, shouldUpdate};
