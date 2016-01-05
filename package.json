@@ -1,6 +1,6 @@
 {
   "name": "deku-scroll-up",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "\"Scroll to top of page\" component for deku",
   "license": "MIT",
   "repository": "gillstrom/deku-scroll-up",
