@@ -2,12 +2,6 @@
 import dom from 'magic-virtual-element';
 import scrollTo from 'scroll-to';
 
-const defaultProps = {
-	duration: 500,
-	ease: 'out-circ',
-	top: 0
-};
-
 const propTypes = {
 	class: {
 		type: 'string'
@@ -26,11 +20,15 @@ const propTypes = {
 	}
 };
 
-function shouldUpdate({state}, nextProps, {active}) {
-	return !state.active === active;
-}
+const defaultProps = {
+	duration: 500,
+	ease: 'out-circ',
+	top: 0
+};
 
-function afterMount({props}, el, setState) {
+const onClick = (top, obj) => () => scrollTo(0, top, obj);
+
+const afterMount = ({props}, el, setState) => {
 	const {show} = props;
 
 	window.addEventListener('scroll', () => {
@@ -41,17 +39,19 @@ function afterMount({props}, el, setState) {
 
 		setState({active: false});
 	});
-}
+};
 
-function render({props, state}) {
+const shouldUpdate = ({state}, nextProps, {active}) => !state.active === active;
+
+const render = ({props, state}) => {
 	const {children, duration, ease, top} = props;
 	const {active} = state;
 
 	return (
-		<div class={['ScrollUp', props.class, {'ScrollUp--active': active}]} onClick={() => scrollTo(0, top, {ease, duration})}>
+		<div class={['ScrollUp', props.class, {'ScrollUp--active': active}]} onClick={onClick(top, {ease, duration})}>
 			{children}
 		</div>
 	);
-}
+};
 
 export default {afterMount, defaultProps, propTypes, render, shouldUpdate};
